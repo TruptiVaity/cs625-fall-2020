@@ -1,0 +1,4 @@
+# General Ignore Rules
+**.zip
+**.pyc
+**/docs
