@@ -1,0 +1,267 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
+Homework 1
+================
+Trupti Vaity
+
+CS 625, Fall 2020
+
+## Git, GitHub
+
+1.  *What is your GitHub username?*
+
+Trupti Vaity
+
+2.  *What is the URL of your remote GitHub repo (created through
+    Mr.Kennedys exercises)?*
+
+<https://github.com/cs625-datavis-fall20/hw1-setup-TruptiVaity.git>
+
+## R
+
+The command below will load the tidyverse package. If you have installed
+R, RStudio, and the tidyverse package, it should display a list of
+loaded packages and their versions.
+
+``` r
+library(tidyverse)
+```
+
+    ## -- Attaching packages -------------------------------------------------------------------------------- tidyverse 1.3.0 --
+
+    ## v ggplot2 3.3.2     v purrr   0.3.4
+    ## v tibble  3.0.3     v dplyr   1.0.2
+    ## v tidyr   1.1.2     v stringr 1.4.0
+    ## v readr   1.3.1     v forcats 0.5.0
+
+    ## -- Conflicts ----------------------------------------------------------------------------------- tidyverse_conflicts() --
+    ## x dplyr::filter() masks stats::filter()
+    ## x dplyr::lag()    masks stats::lag()
+
+## R Markdown
+
+1.  *Create an ordered bulleted list with at least 3 items*
+
+
+
+  - Bulleted list item 1
+  - Bulleted list item 2
+  - Bulleted list item 3
+
+
+
+2.  *Write a paragraph that demonstrates the use of italics, bold, bold
+    italics, and code.*
+
+*My Name is Trupti Vaity*  
+**Department Computer Science**  
+*_Old Dominion University_*
+
+``` r
+my_variable <- 10
+```
+
+3.  *Create an example of a fenced code block.*
+
+| First Header | Second Header |
+| ------------ | ------------- |
+| Content Cell | Content Cell  |
+| Content Cell | Content Cell  |
+
+4.  *Create a level 4 heading*
+
+#### 4th Level Header
+
+## R
+
+#### Data Visualization Exercises
+
+1.  *Run ggplot(data = mpg). What do you see?*
+
+The Plots section of the studio is opened with a blank plot.
+
+``` r
+ggplot(data = mpg)
+```
+
+![](report_files/figure-gfm/unnamed-chunk-3-1.png)
+
+2.  *How many rows are in mpg? How many columns?*
+
+In mpg, there are 234 rows and 11 columns.
+
+3.  *What does the drv variable describe? Read the help for ?mpg to find
+    out.*
+
+Variable drv describes the type of drive train, where f = front-wheel
+drive, r = rear wheel drive, 4 = 4wd
+
+4.  *Make a scatterplot of hwy vs cyl.*
+
+
+
+``` r
+ggplot(data = mpg) + geom_point(mapping = aes(x = hwy, y = cyl))
+```
+
+![](report_files/figure-gfm/unnamed-chunk-4-1.png)
+
+5.  *What happens if you make a scatterplot of class vs drv? Why is the
+    plot not useful?*
+
+The plot does not show any specific relation of class with drive. This
+plot is not useful because class shows the type of car and drv shows
+the type of drive train which do not depend on each other.
+
+``` r
+ggplot(data = mpg) + geom_point(mapping = aes(x = class, y = drv))
+```
+
+![](report_files/figure-gfm/unnamed-chunk-5-1.png)
+
+#### Workflow: basics Exercises
+
+1.  *Why does this code not work?*
+
+``` r
+my_variable <- 10
+my_varÄ±able
+```
+
+Error: unexpected input in "my\_var"
+
+We get an error,as it is not able to recognize the input after r in
+**my\_varÄ±able**.
+
+2.  *Tweak each of the following R commands so that they run correctly:*
+
+``` r
+library(tidyverse)
+
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy))
+
+filter(mpg, cyl == 8)
+
+filter(diamonds, carat 3)
+```
+
+The parameter data was misspelled as dota.
+
+The function filter was misspelled as fliter and we need to use ==
+instead of = for checking equality.
+
+The package name is diamonds and not diamond, correcting that helped
+in running the code.
+
+3.  *Press Alt + Shift + K. What happens? How can you get to the same
+    place using the menus?*
+
+It displays all the shortcuts using keyboard. We can get to the same
+place by selecting: Help -\Keyboard Shortcuts Help.
+
+## Tableau
+
+*Insert your the image of your final bar chart here*
+
+![Sales in the East](report_files\figure-gfm\sales_in_the_east.png)
+
+1.  *What conclusions can you draw from the chart?*
+
+>From the above bar chart we can say that the requirement of Office Supplies is less as compared to Furniture and Technology throughout the years. But there is a yearly increase in demand for Office Supplies. We can also see that the constant profit is maintained for Office Supplies, and least profit is observed on Tables throughout the years. There is an overall increase in the Sales throughout the years. Maximun profit is obtained on the sale of Phones.
+
+## Observable and Vega-Lite
+
+### A Taste of Observable
+
+1.  *In the New York City weather forecast section, try replacing
+    `Forecast: detailedForecast` with `Forecast: shortForecast`. Then
+    press the blue play button or use Shift-Return to run your change.
+    What happens?*
+
+The description of the forecast is changed to fewer words, for example Mostly Cloudy
+
+2.  *Under the scatterplot of temperature vs.name, try replacing
+    `markCircle()` with `markSquare()`. Then press the blue play button
+    or use Shift-Return to run your change. What happens? How about
+    `markPoint()`?*
+
+markSquare() : The marks on the graph take a square shape.
+
+markPoint() : The marks on the graph are shown as points or hollow circles.
+
+3.  *Under Pick a location, see the weather forecast, pick a location
+    on the map. Where was the point you picked near?*
+
+Location : Array(2) [-85.55, 38.06]
+
+Picked a point near Mount Washington, KY
+
+4.  *The last visualization on this page is a fancy weather chart
+    embedded from another notebook. Click on the 3 dots next to that
+    chart and choose Download PNG. Insert the PNG into your report.*
+
+![Weather Chart](report_files\figure-gfm\a-taste-of-observable.png)
+
+### Charting with Vega-Lite
+
+1.  *Pass an option of { size: 200 } to markCircle().*
+
+The size of the circle marks have increased to 200 in the below chart.
+
+![](report_files\figure-gfm\vega-lite.png)
+
+2.  *Try markSquare instead of markCircle.*
+
+The marks changed their shape from circular to square.
+
+![](report_files\figure-gfm\vega-lite_square.png)
+
+3.  *Try markPoint({ shape: diamond}).*
+
+The shape of the marks in changed to diamond shape and size is back to
+default.
+
+![](report_files\figure-gfm\diamond_shape.png)
+
+4.  *Change Horsepower to Acceleration*
+
+The x-axis label is changed from Horsepower to Acceleration as in the
+below image.
+
+![](report_files\figure-gfm\acceleration.png)
+
+5.  *Swap what fields are displayed on the x- and y-axis*
+
+The values of x-axis are swapped with the y-axis values. So we can
+observe that Acceleration is now displayed on y-axis and the
+Miles\_per\_Gallon is displayed on the x-axis.
+
+![](report_files\figure-gfm\swap_axis.png)
+
+6.  *Change Name to Origin.*
+
+No change is observed in the Origin.
+
+![](report_files\figure-gfm\origin.png)
+
+7.  *Remove the vl.y().fieldN(Origin) line.*
+
+Only one field of total records is seen in the chart, without any
+individual country records.
+
+![](report_files\figure-gfm\remove_origin.png)
+
+8.  *Replace count() with average("Miles_per_Gallon").*
+
+The average is shown in place of the count of records.
+
+![](report_files\figure-gfm\average.png)
+
+## References
+
+*Insert the list of sites you used as references as an unordered list
+with named links here. This is required.*
